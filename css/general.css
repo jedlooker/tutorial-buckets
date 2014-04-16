@@ -1,0 +1,140 @@
+@charset "utf-8";
+
+@-moz-viewport { width: device-width; scale: 1; }
+@-ms-viewport { width: device-width; scale: 1; }
+@-o-viewport { width: device-width; scale: 1; }
+@-webkit-viewport { width: device-width; scale: 1; }
+@viewport { width: device-width; scale: 1; }
+
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+	-moz-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+    
+    font-size: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+	width: 100%;
+    display: block;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+article {
+    margin: 0;
+    padding: 3rem 10%;
+    overflow:  hidden;
+    background-color: deepskyblue; /* Visual Aid */
+}
+
+h2 {
+    margin: 1.5rem 0;
+    padding: 0;
+}
+
+/* Buckets as Figure */
+
+.bucket1 {
+    overflow:  hidden;
+    background-color: red; /* Visual Aid */
+}
+
+.bucket1 figure {
+    float: left;
+    width: 45%; /* First and second buckets. 45% x 2 = 90% */ 
+    margin: 0 10% 1.5rem 0; /* First and second bucket right margins. 10% x 2 = 20%  */
+    padding: 0;
+}
+
+/* THE PROBLEM: The sum total of figure + margin + figure must equal 100%. But we are currently over by 10% because all figures have right margin (figure + margin + figure + margin = 110%). We therefore need to use an "nth-child" to target every "even" (2nd, 4th etc.) figure to have no right margin. */
+
+.bucket1 figure:nth-child(even) {/* every even numbered <figure> has no margin */
+    margin: 0;     
+}
+
+.bucket1 figcaption {
+    background-color:  yellow; /* Visual Aid */
+}
+
+/* Buckets as Unordered List (Same width/margin logic as above) */
+
+.bucket2 {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    list-style: none;
+    background-color: red; /* Visual Aid */
+}
+
+.bucket2 li {
+    float: left;
+    width: 45%;
+    margin: 0 10% 1.5rem 0;
+    padding: 0;
+}
+
+.bucket2 li:nth-child(even) {
+    margin: 0;
+}
+
+.bucket2 a {
+    display: block;
+    background-size: 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: yellow; /* Visual Aid */
+    margin: 0;
+    padding: 100% 0 0; /* height of image ÷ by width = % */
+}
+
+.one {
+    background-image: url(../images/placeholder-1.svg);  
+}
+
+.two {
+    background-image: url(../images/placeholder-2.svg);
+}
+
+.three {
+    background-image: url(../images/placeholder-3.svg);
+}
+
+.four {
+    background-image: url(../images/placeholder-4.svg);
+}
+
+/* Stacked buckets as Figure */
+
+.bucket3 {
+    overflow: hidden;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    background-color: red; /* Visual Aid */
+}
+
+.bucket3 img {
+    float: left;
+    width: 45%; 
+    margin: 0 5% 0 0;
+    padding: 0;
+}
+
+.bucket3 figcaption {
+    float: right;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    background-color: yellow; /* Visual Aid */
+}
